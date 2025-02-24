@@ -95,5 +95,36 @@ public class CustomArrayList {
     public int getSize() {
         return size;
     }
+
+    public void bubbleSort() {
+        boolean isSwapped = true;
+        int counter = 0; //для проверки работтоспособности флага
+
+        while (isSwapped) {
+            isSwapped = false;
+            for (int i = 0; i < size - 1; i++) {
+                if (array[i] instanceof Comparable && array[i + 1] instanceof Comparable) {
+                    Comparable current = (Comparable) array[i];
+                    Comparable next = (Comparable) array[i + 1];
+                    if (current.compareTo(next) > 0) {
+                        var temp = array[i];
+                        array[i] = array[i + 1];
+                        array[i + 1] = temp;
+                        isSwapped = true;
+                    }
+                }
+
+            }
+            counter++;
+            if (!isSwapped) {
+                System.out.println("Проходов по массиву: " + counter);
+                break;
+            }
+
+        }
+
+    }
+
+
 }
 
